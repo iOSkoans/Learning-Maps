@@ -13,6 +13,7 @@
 		3E1415691AA424B700B940B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E1415681AA424B700B940B7 /* Images.xcassets */; };
 		3E14156C1AA424B700B940B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E14156A1AA424B700B940B7 /* LaunchScreen.xib */; };
 		3E1415781AA424B700B940B7 /* Learning_MapsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1415771AA424B700B940B7 /* Learning_MapsTests.swift */; };
+		3E1415821AA424E000B940B7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E1415811AA424E000B940B7 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		3E1415711AA424B700B940B7 /* Learning MapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Learning MapsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E1415761AA424B700B940B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E1415771AA424B700B940B7 /* Learning_MapsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Learning_MapsTests.swift; sourceTree = "<group>"; };
+		3E1415811AA424E000B940B7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E1415821AA424E000B940B7 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +62,7 @@
 		3E1415531AA424B700B940B7 = {
 			isa = PBXGroup;
 			children = (
+				3E1415811AA424E000B940B7 /* MapKit.framework */,
 				3E14155E1AA424B700B940B7 /* Learning Maps */,
 				3E1415741AA424B700B940B7 /* Learning MapsTests */,
 				3E14155D1AA424B700B940B7 /* Products */,

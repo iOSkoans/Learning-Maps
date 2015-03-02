@@ -8,15 +8,23 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class ViewController: UIViewController, MKMapViewDelegate {
+class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     
     @IBOutlet var mapView: MKMapView!
     
+    var manager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // core location
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
         
         // 1.430077, 103.786016
         var latitude: CLLocationDegrees = 1.430077
@@ -57,6 +65,30 @@ class ViewController: UIViewController, MKMapViewDelegate {
         mapView.addAnnotation(newAnnotation)
         
         
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+
+        var userLocation:CLLocation = locations[0] as CLLocation
+
+        // 1.430077, 103.786016
+        var latitude: CLLocationDegrees = userLocation.coordinate.latitude
+        var longitude: CLLocationDegrees = userLocation.coordinate.longitude
+        
+        // zoom level definitions
+        var latDelta: CLLocationDegrees = 0.01
+        var lonDelta: CLLocationDegrees = 0.01
+        
+        // span of the map and center it on the location
+        var span: MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
+        var location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+        var region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+        
+        mapView.setRegion(region, animated: true)
+    }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        println(error)
     }
     
     override func didReceiveMemoryWarning() {
